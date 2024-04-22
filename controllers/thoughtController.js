@@ -1,3 +1,5 @@
+const { Thought } = require('../models');
+
 module.export = {
 
     async getThoughts(req, res) {
