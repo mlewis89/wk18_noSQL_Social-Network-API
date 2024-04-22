@@ -9,7 +9,7 @@ const ReactionSchema = new Schema(
     reactionBody: {
       type: String,
       required: true,
-      maximum: 280
+      max_length: 280
     },
     username: {
       type: String,
