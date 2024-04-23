@@ -72,6 +72,14 @@ module.exports = {
               if (!user) {
                 res.status(404).json({ message: 'No user with this id!' });
               }
+              const user2 = await User.findOneAndUpdate(
+                { _id: req.body.friendId },
+                { $addToSet: { friends: req.params.userId} },
+                {  new: true }
+              );
+              if (!user2) {
+                res.status(404).json({ message: 'No user with this id!' });
+              }
                
         
             res.json(user);
@@ -88,6 +96,15 @@ module.exports = {
               );
 
             if (!user) {
+                return res.status(404).json({ message: 'No user with that ID' });
+            }
+            const user2 =  await User.findOneAndUpdate(
+                { _id: req.params.friendId},
+                { $pull: { friends:  req.params.userId }},
+                {  new: true }
+              );
+
+            if (!user2) {
                 return res.status(404).json({ message: 'No user with that ID' });
             }
 
