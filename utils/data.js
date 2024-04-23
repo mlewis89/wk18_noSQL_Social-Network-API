@@ -125,30 +125,33 @@ const getRandomUsers = (int) => {
       results.push({
         username: usr,
         email: `${usr}@${getRandomArrItem(domainList)}`,
+        thoughts: [],
+        friends: [],
     });
     }
     return results;
   };
 
+
   // Function to generate random applications that we can add to the database. Includes application tags.
-const getRandomThoughts = (int, userArr) => {
+const getRandomThoughts = (int,userArr) => {
     let results = [];
     for (let i = 0; i < int; i++) {
       results.push({
         thoughtText: getRandomArrItem(thoughtsList),
-        username: getRandomArrItem(userArr).username,
         reactions: [...getRandomReactions(Math.floor(Math.random() * 5),userArr)],
+        username: getRandomArrItem(userArr).username,
       });
     }
     return results;
   };
 
-  const getRandomReactions = (int, userArr) => {
+  const getRandomReactions = (int,userArr) => {
     let results = [];
     for (let i = 0; i < int; i++) {
       results.push({
         reactionBody: getRandomArrItem(reactionList),
-        username: getRandomArrItem(userArr).username,
+        username: getRandomArrItem(userArr).username, 
         });
     }
     return results;

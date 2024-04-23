@@ -17,15 +17,25 @@ connection.once('open', async () => {
     await connection.dropCollection('users');
   }
 
-  const users = getRandomUsers(3);
-  const thoughts = getRandomThoughts(10, users);
+  const users = getRandomUsers(5);
+  const thoughts = getRandomThoughts(20,users);
 
+await Thought.collection.insertMany(thoughts);
 
-  await User.collection.insertMany(users);
-  await Thought.collection.insertMany(thoughts);
 
   // loop through the saved applications, for each application we need to generate a application response and insert the application responses
-  console.table(users);
+for(let i = 0; i< users.length;  i++)
+{
+  console.log(users[i].username);
+  const usrthoughts = await Thought.find({username: users[i].username});
+  users[i].thoughts = usrthoughts.map((thought)=>thought._id.toString());
+  console.log(users[i].thoughts)
+
+}
+
+await User.collection.insertMany(users);
+
+console.table(users);  
   console.table(thoughts);
   console.info('Seeding complete! 🌱');
   process.exit(0);

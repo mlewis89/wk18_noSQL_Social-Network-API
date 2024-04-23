@@ -4,7 +4,8 @@ module.exports = {
 
     async getUsers(req, res) {
         try {
-            res.json({});
+            const users = await User.find().populate('thoughts');
+            res.json(users);
         } catch (err) {
             res.status(500).json(err);
         }
