@@ -51,7 +51,6 @@ module.exports = {
         try {
             //console.log(req.params.userId);
             const user = await User.findOneAndDelete({ _id: req.params.userId });
-            console.log(user);
             
             if (!user) {
                 res.status(404).json({ message: 'No User with that ID' });
@@ -64,13 +63,6 @@ module.exports = {
 
         }
     },
-    async clearUserThoughts(req, res) {
-        try {
-            res.json({});
-        } catch (err) {
-            res.status(500).json(err);
-
-        }
-    },
+    
 
 };
