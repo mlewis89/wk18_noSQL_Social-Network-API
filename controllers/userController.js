@@ -12,7 +12,7 @@ module.exports = {
     },
     async getOneUser(req, res) {
         try {
-            const user = await User.findById(req.params.userId).populate('thoughts');
+            const user = await User.findOne({_id: req.params.userId}).populate('thoughts');
             res.json(user);
         } catch (err) {
             res.status(500).json(err);
@@ -21,7 +21,6 @@ module.exports = {
     },
     async createUser(req, res) {
         try {
-            console.log(req.body);
             const user = await User.create(req.body);
         res.json(user);
         } catch (err) {
