@@ -12,7 +12,7 @@ router.route('/').get(getUsers).post(createUser);
 
 // /api/users/:courseId
 router
-  .route('/:courseId')
+  .route('/:userId')
   .get(getOneUser)
   .put(updateUser)
   .delete(deleteUser);
