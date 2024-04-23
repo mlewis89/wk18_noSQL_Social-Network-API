@@ -34,10 +34,19 @@ const UserSchema = new Schema(
   {
     toJSON: {
       getters: true,
+      virtuals: true,
     },
     id: false,
   }
 );
+
+// Create a virtual property `commentCount` that gets the amount of comments per user
+UserSchema
+  .virtual('friendCount')
+  // Getter
+  .get(function () {
+    return `${this.friends.length}`;
+  });
 
 const User = model('user', UserSchema);
 

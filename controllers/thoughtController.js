@@ -1,6 +1,6 @@
 const { Thought } = require('../models');
 
-module.export = {
+module.exports = {
 
     async getThoughts(req, res) {
         try {

@@ -4,14 +4,14 @@ module.exports = {
 
     async getUsers(req, res) {
         try {
-            res.json();
+            res.json({});
         } catch (err) {
             res.status(500).json(err);
         }
     },
     async getOneUser(req, res) {
         try {
-            res.json();
+            res.json({});
         } catch (err) {
             res.status(500).json(err);
 
@@ -19,7 +19,7 @@ module.exports = {
     },
     async createUser(req, res) {
         try {
-            res.json();
+            res.json({});
         } catch (err) {
             res.status(500).json(err);
 
@@ -27,7 +27,7 @@ module.exports = {
     },
     async updateUser(req, res) {
         try {
-            res.json();
+            res.json({});
         } catch (err) {
             res.status(500).json(err);
 
@@ -35,7 +35,7 @@ module.exports = {
     },
     async deleteUser(req, res) {
         try {
-            res.json();
+            res.json({});
         } catch (err) {
             res.status(500).json(err);
 
@@ -43,7 +43,7 @@ module.exports = {
     },
     async clearUserThoughts(req, res) {
         try {
-            res.json();
+            res.json({});
         } catch (err) {
             res.status(500).json(err);
 
