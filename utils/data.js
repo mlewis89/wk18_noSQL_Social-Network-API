@@ -118,6 +118,7 @@ const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const getRandomUsername = () =>
   `${getRandomArrItem(nameList)}${Math.floor(Math.random() * 999)}`;
 
+  //get random list of users
 const getRandomUsers = (int) => {
     let results = [];
     for (let i = 0; i < int; i++) {
@@ -133,7 +134,7 @@ const getRandomUsers = (int) => {
   };
 
 
-  // Function to generate random applications that we can add to the database. Includes application tags.
+  // Function to generate random thoughts that we can add to the database. Includes thought reactions.
 const getRandomThoughts = (int,userArr) => {
     let results = [];
     for (let i = 0; i < int; i++) {
@@ -145,7 +146,7 @@ const getRandomThoughts = (int,userArr) => {
     }
     return results;
   };
-
+//get an array of random reactions
   const getRandomReactions = (int,userArr) => {
     let results = [];
     for (let i = 0; i < int; i++) {

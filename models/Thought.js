@@ -1,6 +1,8 @@
+//include mongoose datatypes
 const { Schema, Types, model } = require('mongoose');
+//include schema for reactions
 const reactionSchema = require('./Reaction');
-
+//define thought model
 const ThoughtSchema = new Schema(
   {
     thoughtText: {
@@ -26,7 +28,7 @@ const ThoughtSchema = new Schema(
     id: false,
   }
 );
-
+//create model 
 const Thought = model('thought', ThoughtSchema);
-
+//export for later use
 module.exports = Thought;

@@ -1,5 +1,6 @@
+//include mongoose data types
 const { Schema, Types } = require('mongoose');
-
+//define model
 const ReactionSchema = new Schema(
   {
     reactionId: {
@@ -28,6 +29,6 @@ const ReactionSchema = new Schema(
   }
 );
 
-
+//export for later use
 
 module.exports = ReactionSchema;

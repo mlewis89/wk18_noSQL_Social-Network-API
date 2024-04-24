@@ -1,5 +1,6 @@
+//include mongoose data types
 const { Schema, Types, model } = require('mongoose');
-
+//define user model
 const UserSchema = new Schema(
   {
     username: {
@@ -12,8 +13,7 @@ const UserSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      match: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-      //validate email*************************************************************************************
+      match: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,     //validate email
     },
     thoughts : [
         {
@@ -37,14 +37,14 @@ const UserSchema = new Schema(
   }
 );
 
-// Create a virtual property `commentCount` that gets the amount of comments per user
+// virtual property `friendCount` that gets the amount of friends per user
 UserSchema
   .virtual('friendCount')
   // Getter
   .get(function () {
     return `${this.friends.length}`;
   });
-
+//create user model
 const User = model('user', UserSchema);
-
+//export model for later use
 module.exports = User;
